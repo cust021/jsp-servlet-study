@@ -22,7 +22,7 @@
 	<c:forEach items="${userInfoList}" var="userInfo"> <!-- repository에 있는 userInfoList를 가지고온다-->
 		<tr>
 			<td>${userInfo.uiNum}</td>
-			<td>${userInfo.uiName}</td>
+			<td><a href="/user-info/view?uiNum=${userInfo.uiNum}">${userInfo.uiName}</a></td>
 			<td>${userInfo.uiId}</td>
 			<td>${userInfo.uiPwd}</td>
 		</tr>

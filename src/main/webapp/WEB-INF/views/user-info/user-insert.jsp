@@ -4,9 +4,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원가입</title>
 </head>
 <body>
-	유저 등록 화면입니다.2
+	<form action="/user-info/insert" method="POST">
+		<input type="text" name="uiName" placeholder="유저 이름">
+		<input type="text" name="uiId" placeholder="유저 아이디">
+		<input type="password" name="uiPwd" placeholder="유저 비밀번호">
+		<button>등록</button>
+		
+	</form>
+	<button onclick="location.href='/user-info/list'">뒤로</button>
 </body>
 </html>
