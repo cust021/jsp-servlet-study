@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	id="WebApp_ID" version="4.0">
+	<!-- jstl이 인식 안되어서 c:forEach를 읽지 못할경우 web.xml버전이 2.3이하일 경우 버전을 바꿔줘야한다. -->
+  <display-name>/</display-name>
+  
+  <servlet>
+  	<servlet-name>UserServlet</servlet-name>  <!-- web.xml을 매핑을 구분하기 위한 이름 -->
+  	<servlet-class>web.controller.UserServlet</servlet-class> <!-- 연결 시킬 servlet 클래스 이름  --> 
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UserServlet</servlet-name>  <!-- 위에 servlet-name이랑 같은건 동일해야함 -->
+  	<url-pattern>/user-info/*</url-pattern>   <!-- 연결 시킬 servlet 주소 -->
+  </servlet-mapping>
+  
+  <welcome-file-list>
+  	<welcome-file>/WEB-INF/index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  
+</web-app>
+
