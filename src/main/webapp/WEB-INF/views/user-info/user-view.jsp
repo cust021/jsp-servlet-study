@@ -8,6 +8,8 @@
 <title>유저 상세정보 페이지</title>
 </head>
 <body>
+<form action="/user-info/delete" method="POST">
+<input type="hidden" name="uiNum" value="${userInfo.uiNum }">
 	<table border="1">
 		<tr>
 			<th>유저 번호</th>
@@ -30,10 +32,13 @@
 		</tr>
 		<tr>
 			<th colspan="2">
-				<button onclick="location.href='/user-info/list'">뒤로</button>
+				<button type="button" onclick="location.href='/user-info/update?uiNum=${userInfo.uiNum}'">수정</button>
+				<button>삭제</button>
+				<button type="button" onclick="location.href='/user-info/list'">뒤로</button> <!-- type을 지정해두면 form태그에 영향을 받지 않는다. -->
 			</th>
 		<tr>
 	</table>
-
+</form>
 </body>
+
 </html>

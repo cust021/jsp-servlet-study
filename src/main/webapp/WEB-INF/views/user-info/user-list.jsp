@@ -31,5 +31,6 @@
 	
 	<td align="right" colspan="4"><button onclick="location.href='/user-info/insert'">유저 등록</button>
 	</table>
+	<button onclick="location.href='/'">인덱스로 돌아가기</button>
 </body>
 </html>

@@ -8,5 +8,7 @@
 </head>
 <body>
  index페이지
+ 
+ <button onclick="location='/user-info/list'">유저 리스트 페이지로 이동 </button>
 </body>
 </html>
