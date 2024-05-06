@@ -10,8 +10,11 @@
 <title>유저 리스트 페이지</title>
 </head>
 <body>
-	유저 리스트가 될 페이지 입니다.
-	
+	유저 리스트가 될 페이지 입니다.<br>
+	<form action="/user-info/list?" method="GET"> <!-- form을 이용해 검색을 누를씨 action동작 -->
+	<input type="text" name="uiName" placeholder="유저 이름" > <!-- 파라미터 값인 uiName을 끌고 오기위해 name값에 uiName값 삽입 -->
+	<button type="submit">검색</button>	
+	</form>
 	<table border="1">
 	<tr>
 		<th>유저 번호</th>

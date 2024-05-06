@@ -29,8 +29,12 @@ public class UserServlet extends HttpServlet {
 		String path = "/WEB-INF/views/user-info/";  // 기본 path를 정해두고
 		if("list".equals(uri)) { // 만약 uri에 list가 있는지 확인
 			path+= "user-list.jsp"; // 맞다면 +=하여 이동
-			request.setAttribute("userInfoList", uiRepo.selectUserInfoList()); //특성을 요청하여 userInfoList란 이름을 value로 설정
-			
+			String uiName = request.getParameter("uiName");
+			if(uiName != null && !uiName.isEmpty()) {  // 파라미터 값이 null이 아니거나 빈값이 아니면 아래 메소드를 끌고온다
+				request.setAttribute("userInfoList", uiRepo.selectUserInfoName(uiName));
+			}else {
+				request.setAttribute("userInfoList", uiRepo.selectUserInfoList()); //특성을 요청하여 userInfoList란 이름을 value로 설정
+			}			
 		}else if("view".equals(uri)) {
 			path+= "user-view.jsp";
 			String uiNum = request.getParameter("uiNum");  // 파라미터에서 uiNum값을 요청함
@@ -98,6 +102,8 @@ public class UserServlet extends HttpServlet {
 				request.setAttribute("uri", "/user-info/list");
 			}
 		}
+		
+	
 		RequestDispatcher rd = request.getRequestDispatcher(path); // msg출력을 위해서 사용
 		rd.forward(request, response);
 	}

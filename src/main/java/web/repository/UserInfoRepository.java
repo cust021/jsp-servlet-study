@@ -9,8 +9,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.RequestDispatcher;
-
 import web.common.DBCon;
 
 public class UserInfoRepository {
@@ -116,5 +114,28 @@ public class UserInfoRepository {
 			e.printStackTrace();
 		}
 		return 0;
+	}
+	// 유저 이름 검색 기능
+	public List<Map<String,String>> selectUserInfoName(String uiName) {
+		List<Map<String,String>> selectUiName = new ArrayList<>();
+			
+		try {
+			String sql = "SELECT UI_NAME, UI_NUM, UI_ID, UI_PWD FROM USER_INFO WHERE UI_NAME LIKE '%" + uiName + "%'";
+			Connection con = DBCon.getCon();
+			PreparedStatement ps = con.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				Map<String,String> userInfoName = new HashMap<>();
+				userInfoName.put("uiNum", rs.getString("UI_NUM"));
+				userInfoName.put("uiName", rs.getString("UI_NAME"));
+				userInfoName.put("uiId", rs.getString("UI_ID"));
+				userInfoName.put("uiPwd", rs.getString("UI_PWD"));
+				selectUiName.add(userInfoName); 
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return selectUiName;
 	}
 }
